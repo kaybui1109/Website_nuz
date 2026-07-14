@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phấn Nụ NUZ | Nụ kể chuyện</title>
+<meta name="description" content="Phấn Nụ NUZ — mỹ phẩm thiên nhiên cung đình Huế. Câu chuyện, nguyên liệu, quy trình và công dụng của viên Phấn Nụ truyền thống.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V471GQX8K3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-V471GQX8K3');
+</script>
+</head>
+<body>
+
+<!-- ============ PAGE LOADER ============ -->
+<div class="page-loader" id="pageLoader" aria-hidden="true">
+  <div class="loader-mark">
+    <svg viewBox="0 0 40 40" fill="none">
+      <circle cx="20" cy="20" r="19" stroke="currentColor" stroke-width="1"/>
+      <path d="M20 10c4 4 6 8 6 12a6 6 0 1 1-12 0c0-4 2-8 6-12Z" fill="currentColor" opacity="0.85"/>
+    </svg>
+  </div>
+  <div class="loader-dots"><span></span><span></span><span></span></div>
+</div>
+
+<!-- ============ MINI GAME: THÔNG BÁO CHẶN TRÊN ĐIỆN THOẠI ============ -->
+<div class="game-overlay" id="gameOverlay" aria-hidden="true">
+  <div class="game-mobile-block" id="gameMobileBlock">
+    <div class="loader-mark">
+      <svg viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="20" r="19" stroke="currentColor" stroke-width="1"/>
+        <path d="M20 10c4 4 6 8 6 12a6 6 0 1 1-12 0c0-4 2-8 6-12Z" fill="currentColor" opacity="0.85"/>
+      </svg>
+    </div>
+    <h3>Trò chơi hiện không thể hoạt động trên thiết bị này</h3>
+    <p>Mini game hiện chỉ chơi được trên máy tính. Mong các bạn thông cảm, hãy quay lại bằng máy tính để trải nghiệm nhé!</p>
+    <button class="game-back-btn-inline" id="gameBackBtnInline">Quay lại trang web</button>
+  </div>
+</div>
+
+<div class="grain"></div>
+<div class="dynamic-gradient-bg" aria-hidden="true"></div>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="siteNav">
+  <div class="container nav-inner">
+    <a href="#hero" class="brand">
+      <svg class="nu-mark" viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="20" r="19" stroke="currentColor" stroke-width="1"/>
+        <path d="M20 10c4 4 6 8 6 12a6 6 0 1 1-12 0c0-4 2-8 6-12Z" fill="currentColor" opacity="0.85"/>
+      </svg>
+      Phấn Nụ NUZ
+    </a>
+    <nav class="links" id="navLinks">
+      <a href="#gioi-thieu">Phấn Nụ là gì?</a>
+      <a href="#nu-chuyen-dong">Nụ chuyển động</a>
+      <a href="#hinh-dang">Hình dáng</a>
+      <a href="#hanh-trinh">Di sản</a>
+      <a href="#nguyen-lieu">Nguyên liệu</a>
+      <a href="#quy-trinh">Quy trình</a>
+      <a href="#cong-dung">Công dụng</a>
+      <a href="#hanh-trinh-sinh-vien">Hành trình SV</a>
+      <a href="#mini-game" id="miniGameLink">Mini game</a>
+      <a href="#blog" class="nav-cta">Nụ kể chuyện</a>
+    </nav>
+    <button class="burger" id="burgerBtn" aria-label="Mở menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-aurora" aria-hidden="true"></div>
+  <div class="hero-rays"></div>
+  <div class="hero-vignette"></div>
+  <div class="hero-glow" id="heroGlow" aria-hidden="true"></div>
+  <div id="dustField"></div>
+  <div class="petal-canvas" id="petalCanvas" aria-hidden="true"></div>
+
+  <!-- Bé Nụ hero — float góc phải -->
+  <div class="nu-mascot nu-mascot-hero" role="button" tabindex="0" aria-label="Xem hồ sơ Bé Nụ">
+    <img src="images/nu-1.webp" alt="Bé Nụ NUZ" draggable="false">
+    <span class="nu-mascot-hint">Xem hồ sơ Bé Nụ</span>
+  </div>
+
+  <div class="hero-inner">
+    <span class="eyebrow"><span class="type-text" id="heroType" data-text="Mỹ phẩm cung đình Huế"></span><span class="type-cursor" aria-hidden="true"></span></span>
+
+    <div class="nu-bloom nu-bloom-photo" id="nuBloom">
+      <div class="nu-bloom-photo-glow"></div>
+      <img src="images/phan-nu-jars-real.webp" alt="Viên Phấn Nụ NUZ" loading="lazy">
+    </div>
+
+    <h1>Nụ kể chuyện về <em><br> Phấn Nụ </em><br>cung đình Huế</h1>
+    <p class="lede">Một viên phấn nhỏ, bảy tầng tinh tuý — mang theo bí quyết làm đẹp triều Nguyễn và bàn tay thủ công gìn giữ qua nhiều thế hệ.</p>
+    <div class="hero-actions">
+      <a href="#blog" class="btn btn-primary">Đọc Nụ kể chuyện</a>
+      <a href="#hanh-trinh" class="btn btn-ghost">Khám phá di sản</a>
+    </div>
+  </div>
+
+  
+</section>
+
+<!-- ============ ANNOUNCEMENT: Dự án truyền thông (ảnh poster thật) ============ -->
+<section class="announce" id="du-an">
+  <div class="announce-smoke" aria-hidden="true">
+    <span class="smoke s1"></span>
+    <span class="smoke s2"></span>
+    <span class="smoke s3"></span>
+    <span class="smoke s4"></span>
+  </div>
+  <div class="container announce-grid">
+    <div class="announce-img reveal-scale">
+      <img src="images/poster-du-an.jpg" alt="Poster dự án truyền thông Nụ Xưa, Nét Nay" loading="lazy">
+    </div>
+    <div class="announce-text reveal-right">
+      <span class="tag">Dự án truyền thông</span>
+      <h2>"Nụ Xưa, Nét Nay" chính thức khởi động</h2>
+      <p>Một hành trình kể lại câu chuyện Phấn Nụ cung đình Huế bằng góc nhìn hôm nay — từ di sản, nguyên liệu, quy trình đến những sản phẩm Phấn Nụ NUZ đang được gìn giữ và lan toả.</p>
+      <a href="#cong-dung" class="btn btn-primary">Khám phá công dụng</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GIỚI THIỆU: Phấn Nụ là gì ============ -->
+<section class="section intro" id="gioi-thieu">
+  <!-- Animated gradient background -->
+  <div class="intro-grad-layer" aria-hidden="true">
+    <div class="intro-blob intro-blob-1"></div>
+    <div class="intro-blob intro-blob-2"></div>
+    <div class="intro-blob intro-blob-3"></div>
+    <div class="intro-blob intro-blob-4"></div>
+    <div class="intro-shimmer"></div>
+  </div>
+  <div class="container">
+    <div class="intro-grid">
+      <div class="intro-text reveal-left">
+        <span class="tag">Khám phá Phấn Nụ</span>
+        <h2 style="font-size:clamp(2.1rem,3.5vw,2.8rem);margin-bottom:20px;">Phấn Nụ là gì?</h2>
+        <p>Vì sao một viên phấn lại được nhắc đến như nét đẹp rất riêng của xứ Huế?</p>
+        <p>Phấn Nụ là dòng mỹ phẩm thiên nhiên có nguồn gốc từ Huế, gắn liền với bí quyết làm đẹp được lưu truyền trong chốn cung đình xưa. Sở dĩ được gọi là "Phấn Nụ" vì mỗi viên phấn có hình dáng nhỏ nhắn, mềm mại như một nụ hoa.</p>
+
+        <div class="intro-points">
+          <div class="intro-point">
+            <span class="ip-ico">👑</span>
+            <div><strong>Khởi nguồn cung đình</strong><span>Từng là món quà ban cho người phụ nữ được vua sủng hạnh thời Nguyễn</span></div>
+          </div>
+          <div class="intro-point">
+            <span class="ip-ico">🌸</span>
+            <div><strong>Dáng hình nụ hoa</strong><span>Nhỏ nhắn, mềm mại, mang nét thanh nhã của người phụ nữ Huế xưa</span></div>
+          </div>
+          <div class="intro-point">
+            <span class="ip-ico">🕰️</span>
+            <div><strong>Gìn giữ qua thời gian</strong><span>Từ chốn cung đình đến đời sống hôm nay vẫn được trân trọng</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="intro-visual reveal-scale">
+        <div class="intro-visual-float">
+          <div class="ring"></div>
+          <div class="ring r2"></div>
+          <div class="intro-photo-frame">
+            <img src="images/phan-nu-jars-real.webp" alt="Viên Phấn Nụ NUZ" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SCROLL CINEMA: Phấn Nụ qua từng khoảnh khắc (151 frames) ============ -->
+<section class="section scroll-cinema" id="nu-chuyen-dong">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="tag">Nụ chuyển động</span>
+      <h2>Phấn Nụ qua từng<br> khoảnh khắc</h2>
+      <p>Bấm vào khung hình bên dưới rồi cuộn (lăn) chuột để tự tay "lật" từng khung hình viên Phấn Nụ hé nở — từng khoảnh khắc được ghi lại tỉ mỉ như chính đôi bàn tay làm nên nó. Bấm ra ngoài khung hình để tiếp tục lướt trang.</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="sc-pin" id="scPin">
+      <div class="sc-stage" id="scStage" tabindex="0" role="slider" aria-valuemin="0" aria-valuemax="150" aria-valuenow="0" aria-label="Hoạt họa viên Phấn Nụ theo từng khung hình. Bấm để tương tác, cuộn chuột để xem.">
+        <canvas id="scCanvas" class="sc-canvas" aria-hidden="true"></canvas>
+        <div class="sc-vignette" aria-hidden="true"></div>
+
+        <div class="sc-loading" id="scLoading">
+          <span class="sc-loading-ring"></span>
+          <span class="sc-loading-text">Đang tải khung hình… <b id="scLoadingPct">0%</b></span>
+        </div>
+
+        <div class="sc-drag-hint sc-hint-mouse" id="scDragHint" aria-hidden="true">
+          <span class="sc-drag-hint-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11V6a2 2 0 1 1 4 0v5"/><path d="M13 11V4a2 2 0 1 1 4 0v9"/><path d="M17 11V7a2 2 0 1 1 4 0v7c0 3.9-3.1 7-7 7h-1a7 7 0 0 1-5.6-2.8L4 13.6a2 2 0 0 1 3-2.6l2 2"/></svg>
+          </span>
+          <span class="sc-drag-hint-text">Bấm vào khung hình, sau đó cuộn chuột để xem</span>
+        </div>
+
+        <div class="sc-drag-hint sc-hint-touch" id="scTouchHint" aria-hidden="true">
+          <span class="sc-drag-hint-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 9l-3 3 3 3"/><path d="M16 9l3 3-3 3"/><path d="M5 12h14"/></svg>
+          </span>
+          <span class="sc-drag-hint-text">Kéo thanh trượt bên dưới để xem</span>
+        </div>
+
+        <div class="sc-active-badge" id="scActiveBadge" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+          Đang tương tác — cuộn chuột để xem, bấm ra ngoài để lướt trang
+        </div>
+      </div>
+
+      <div class="sc-scrub" id="scScrub">
+        <input type="range" id="scRange" class="sc-range" min="0" max="150" step="1" value="0"
+          aria-label="Kéo để xem từng khung hình viên Phấn Nụ">
+      </div>
+
+      <p class="sc-caption" id="scCaption">
+        <span class="sc-caption-mouse">Bấm vào khung hình rồi cuộn chuột để phóng to / thu nhỏ, xem trọn từng khoảnh khắc</span>
+        <span class="sc-caption-touch">Kéo (vuốt) thanh trượt để lật từng khung hình, xem trọn từng khoảnh khắc</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HÌNH DÁNG (7 tầng / Thiên Mụ) ============ -->
+<section class="section shape-sec" id="hinh-dang">
+  <!-- Background orbs (giống process-v2) -->
+  <div class="sh-orb sh-orb-1"></div>
+  <div class="sh-orb sh-orb-2"></div>
+  <div class="sh-orb sh-orb-3"></div>
+
+  <div class="sh-container">
+
+    <!-- Header -->
+    <div class="sh-header reveal">
+      <h2 class="sh-title">Hình dáng viên <em>Phấn Nụ</em></h2>
+      <p class="sh-subtitle">Nhỏ gọn, thuôn tròn, mềm mại — mang trong mình nét đẹp của người phụ nữ Huế xưa.</p>
+    </div>
+
+    <!-- Tab switcher -->
+    <div class="sh-tabs reveal">
+      <button class="sh-tab active" data-tab="phan">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/></svg>
+        Viên Phấn Nụ
+      </button>
+      <div class="sh-tab-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 12h8M14 9l3 3-3 3"/></svg>
+        <span>Gợi nhớ đến</span>
+      </div>
+      <button class="sh-tab" data-tab="thap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l2 4h4l-3 3 1 4-4-2-4 2 1-4-3-3h4z"/></svg>
+        Tháp Thiên Mụ
+      </button>
+    </div>
+
+    <!-- Main panel -->
+    <div class="sh-panel reveal">
+
+      <!-- Panel: Viên Phấn Nụ -->
+      <div class="sh-pane active" id="sh-pane-phan">
+        <div class="sh-pane-inner">
+          <div class="sh-img-col">
+            <div class="sh-img-frame sh-img-frame--product">
+              <img src="images/phan-nu-product.webp" alt="Viên Phấn Nụ" class="sh-img" />
+              <div class="sh-img-glow"></div>
+            </div>
+            <div class="sh-img-caption">Viên Phấn Nụ · NUZ</div>
+          </div>
+          <div class="sh-text-col">
+            <p class="sh-lead">Viên Phấn Nụ mang dáng vẻ nhỏ gọn, thuôn tròn và mềm mại như một nụ hoa vừa hé nở. Thiết kế ấy không chỉ giúp người dùng dễ cầm nắm mà còn gợi lên vẻ đẹp thanh khiết, dịu dàng – tinh thần đặc trưng của người phụ nữ Huế xưa.</p>
+
+            <!-- 7 tầng stat -->
+            <div class="sh-stat">
+              <div class="sh-stat-num">7</div>
+              <div class="sh-stat-info">
+                <strong>Tầng xếp chồng</strong>
+                <span>Tạo tác thủ công, cân đối và hài hòa</span>
+              </div>
+            </div>
+
+            <p class="sh-body">Điểm đặc biệt của Phấn Nụ là cấu trúc <strong>7 tầng</strong> được xếp chồng lên nhau. Mỗi tầng được tạo tác thủ công, cân đối và hài hòa, tạo nên một tổng thể thanh thoát nhưng vẫn rất vững chãi.</p>
+
+            <button class="sh-cta" data-tab="thap">
+              Xem liên tưởng với Tháp Thiên Mụ
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel: Tháp Thiên Mụ -->
+      <div class="sh-pane" id="sh-pane-thap">
+        <div class="sh-pane-inner">
+          <div class="sh-img-col">
+            <div class="sh-img-frame sh-img-frame--pagoda">
+              <img src="images/thap-thien-mu.webp" alt="Tháp Thiên Mụ" class="sh-img" />
+              <div class="sh-img-glow sh-img-glow--gold"></div>
+            </div>
+            <div class="sh-img-caption">Tháp Thiên Mụ · Cố đô Huế</div>
+          </div>
+          <div class="sh-text-col">
+            <p class="sh-lead">Đối với nhiều người, hình dáng ấy còn gợi nhớ đến <strong>Tháp Thiên Mụ</strong> – biểu tượng nổi tiếng của cố đô Huế.</p>
+            <p class="sh-body">Dù đây là một sự liên tưởng về mặt hình ảnh hơn là nguồn gốc thiết kế đã được xác nhận, nét tương đồng ấy góp phần làm nổi bật bản sắc Huế trong từng viên Phấn Nụ.</p>
+
+            <!-- So sánh 7 tầng -->
+            <div class="sh-compare">
+              <div class="sh-compare-item">
+                <div class="sh-compare-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="9" y="2" width="6" height="4"/><rect x="7" y="6" width="10" height="4"/><rect x="5" y="10" width="14" height="4"/><rect x="3" y="14" width="18" height="5"/></svg>
+                </div>
+                <span>Tháp Thiên Mụ<br><em>7 tầng</em></span>
+              </div>
+              <div class="sh-compare-equals">≈</div>
+              <div class="sh-compare-item">
+                <div class="sh-compare-icon sh-compare-icon--rose">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><ellipse cx="12" cy="5" rx="3" ry="3"/><ellipse cx="12" cy="10" rx="5" ry="3"/><ellipse cx="12" cy="15" rx="7" ry="3"/><ellipse cx="12" cy="20" rx="9" ry="3"/></svg>
+                </div>
+                <span>Viên Phấn Nụ<br><em>7 tầng</em></span>
+              </div>
+            </div>
+
+            <button class="sh-cta sh-cta--ghost" data-tab="phan">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+              Quay lại Viên Phấn Nụ
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /.sh-panel -->
+  </div><!-- /.sh-container -->
+</section>
+
+<!-- ============ HÀNH TRÌNH / TIMELINE ============ -->
+<section class="section timeline-sec" id="hanh-trinh">
+  <div class="hero-rays"></div>
+  <div class="prod-bg-fx" aria-hidden="true">
+    <div class="prod-orb po1"></div>
+    <div class="prod-orb po2"></div>
+    <div class="prod-orb po3"></div>
+    <div class="prod-dust-layer"></div>
+  </div>
+  <div class="nu-mascot nu-mascot-hanhtrinh" role="button" tabindex="0" aria-label="Xem hồ sơ Bé Nụ">
+    <img src="images/nu-5.webp" alt="Bé Nụ áo dài hồng cầm hoa mai" draggable="false">
+    <span class="nu-mascot-hint">Xem hồ sơ Bé Nụ</span>
+  </div>
+  <div class="container" style="position:relative;z-index:2;">
+    <div class="section-head center reveal">
+      <h2>Hành trình ra đời và phát triển Phấn Nụ</h2>
+      <p>Tinh hoa mỹ phẩm cung đình Huế – được gìn giữ, kế thừa và phát triển qua nhiều thế hệ.</p>
+    </div>
+    <div class="timeline timeline-icon">
+
+      <!-- Era 1: Cung đình – icon tháp/cổng -->
+      <div class="t-item t-item-icon reveal">
+        <div class="t-icon-circle">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- Tháp cung đình Huế -->
+            <rect x="27" y="44" width="10" height="10" rx="1" stroke="#D9AE6C" stroke-width="1.5"/>
+            <rect x="22" y="36" width="20" height="9" rx="1" stroke="#D9AE6C" stroke-width="1.5"/>
+            <rect x="18" y="29" width="28" height="8" rx="1" stroke="#D9AE6C" stroke-width="1.5"/>
+            <!-- Mái lớp 1 -->
+            <path d="M14 29 Q32 18 50 29" stroke="#D9AE6C" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <!-- Mái lớp 2 -->
+            <path d="M19 22 Q32 13 45 22" stroke="#D9AE6C" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <!-- Đỉnh tháp -->
+            <path d="M28 13 L32 8 L36 13" stroke="#D9AE6C" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Cửa -->
+            <rect x="29" y="38" width="6" height="7" rx="3" stroke="#D9AE6C" stroke-width="1.2"/>
+            <!-- Đường nền -->
+            <line x1="10" y1="54" x2="54" y2="54" stroke="#D9AE6C" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+          </svg>
+        </div>
+        <div class="t-dot"></div>
+        <div class="t-content">
+          <span class="t-year">Huế xưa</span>
+          <h4>Khởi nguồn từ Hoàng cung Huế</h4>
+          <p>Phấn Nụ ra đời trong Hoàng cung Huế, được các cung tần và mỹ nữ sử dụng để gìn giữ nét đẹp thanh tao.</p>
+        </div>
+      </div>
+
+      <!-- Era 2: Dân gian – icon nhà truyền thống -->
+      <div class="t-item t-item-icon reveal">
+        <div class="t-icon-circle">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- Mái nhà cong kiểu Huế -->
+            <path d="M10 32 Q32 14 54 32" stroke="#D9AE6C" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <path d="M14 32 Q32 18 50 32" stroke="#D9AE6C" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.5"/>
+            <!-- Thân nhà -->
+            <rect x="16" y="32" width="32" height="18" rx="1" stroke="#D9AE6C" stroke-width="1.5"/>
+            <!-- Cửa chính -->
+            <rect x="27" y="38" width="10" height="12" rx="1" stroke="#D9AE6C" stroke-width="1.2"/>
+            <!-- Cửa sổ trái -->
+            <rect x="19" y="37" width="6" height="6" rx="1" stroke="#D9AE6C" stroke-width="1.2"/>
+            <!-- Cửa sổ phải -->
+            <rect x="39" y="37" width="6" height="6" rx="1" stroke="#D9AE6C" stroke-width="1.2"/>
+            <!-- Đỉnh mái -->
+            <path d="M28 14 L32 9 L36 14" stroke="#D9AE6C" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Nền -->
+            <line x1="10" y1="50" x2="54" y2="50" stroke="#D9AE6C" stroke-width="1.2" stroke-linecap="round" opacity="0.4"/>
+          </svg>
+        </div>
+        <div class="t-dot"></div>
+        <div class="t-content">
+          <span class="t-year">1945</span>
+          <h4>Gìn giữ trong dân gian</h4>
+          <p>Sau khi triều Nguyễn chấm dứt, bí quyết làm Phấn Nụ tiếp tục được lưu giữ và truyền lại trong dân gian.</p>
+        </div>
+      </div>
+
+      <!-- Era 3: Khôi phục – icon hai bàn tay nâng lá -->
+      <div class="t-item t-item-icon reveal">
+        <div class="t-icon-circle">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- Bàn tay trái -->
+            <path d="M10 44 C10 44 14 38 18 36 L26 34" stroke="#D9AE6C" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Bàn tay phải -->
+            <path d="M54 44 C54 44 50 38 46 36 L38 34" stroke="#D9AE6C" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Lòng bàn tay -->
+            <path d="M18 36 Q32 30 46 36" stroke="#D9AE6C" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <!-- Lá lớn giữa -->
+            <path d="M32 32 Q26 22 30 14 Q34 22 32 32Z" stroke="#D9AE6C" stroke-width="1.4" fill="none" stroke-linejoin="round"/>
+            <!-- Lá trái -->
+            <path d="M28 28 Q20 20 22 12 Q26 20 28 28Z" stroke="#D9AE6C" stroke-width="1.2" fill="none" stroke-linejoin="round" opacity="0.75"/>
+            <!-- Lá phải -->
+            <path d="M36 28 Q44 20 42 12 Q38 20 36 28Z" stroke="#D9AE6C" stroke-width="1.2" fill="none" stroke-linejoin="round" opacity="0.75"/>
+            <!-- Gân lá -->
+            <line x1="32" y1="14" x2="32" y2="32" stroke="#D9AE6C" stroke-width="0.8" opacity="0.5"/>
+          </svg>
+        </div>
+        <div class="t-dot"></div>
+        <div class="t-content">
+          <span class="t-year">1980</span>
+          <h4>Bà Phan Thị Đệ Như khởi nghiệp</h4>
+          <p>Bà Phan Thị Đệ Như bắt đầu sản xuất Phấn Nụ thủ công, đưa sản phẩm đến gần hơn với người tiêu dùng.</p>
+        </div>
+      </div>
+
+      <!-- Era 4: Thương hiệu chính thức – icon dấu ấn/nhãn hiệu -->
+      <div class="t-item t-item-icon reveal">
+        <div class="t-icon-circle">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- Khiên/nhãn hiệu -->
+            <path d="M32 10 L48 16 V30 C48 42 41 49 32 54 C23 49 16 42 16 30 V16 Z" stroke="#D9AE6C" stroke-width="1.5" stroke-linejoin="round"/>
+            <!-- Ngôi sao / mai vàng cách điệu ở giữa -->
+            <circle cx="32" cy="29" r="6" stroke="#D9AE6C" stroke-width="1.3"/>
+            <path d="M32 24 L33.2 27.6 L37 27.6 L33.9 29.8 L35.1 33.4 L32 31.2 L28.9 33.4 L30.1 29.8 L27 27.6 L30.8 27.6 Z" fill="#D9AE6C" opacity="0.75"/>
+            <!-- Dải ruy băng -->
+            <path d="M22 46 L18 54 L24 52 L27 57" stroke="#D9AE6C" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M42 46 L46 54 L40 52 L37 57" stroke="#D9AE6C" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="t-dot"></div>
+        <div class="t-content">
+          <span class="t-year">2009</span>
+          <h4>Chính thức mang tên thương hiệu</h4>
+          <p>Thương hiệu chính thức mang tên Phấn Nụ Truyền Thống Nhất Chi Mai, đánh dấu bước phát triển mới.</p>
+        </div>
+      </div>
+
+      <!-- Era 5: Hiện nay – icon hoa sen -->
+      <div class="t-item t-item-icon reveal">
+        <div class="t-icon-circle">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- Cánh sen dưới -->
+            <path d="M32 48 Q22 44 20 36 Q26 38 32 48Z" stroke="#D9AE6C" stroke-width="1.3" fill="none" stroke-linejoin="round"/>
+            <path d="M32 48 Q42 44 44 36 Q38 38 32 48Z" stroke="#D9AE6C" stroke-width="1.3" fill="none" stroke-linejoin="round"/>
+            <!-- Cánh sen giữa -->
+            <path d="M32 42 Q20 36 20 26 Q26 30 32 42Z" stroke="#D9AE6C" stroke-width="1.4" fill="none" stroke-linejoin="round"/>
+            <path d="M32 42 Q44 36 44 26 Q38 30 32 42Z" stroke="#D9AE6C" stroke-width="1.4" fill="none" stroke-linejoin="round"/>
+            <!-- Cánh sen chính -->
+            <path d="M32 40 Q24 30 26 18 Q30 26 32 40Z" stroke="#D9AE6C" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
+            <path d="M32 40 Q40 30 38 18 Q34 26 32 40Z" stroke="#D9AE6C" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
+            <!-- Nhụy -->
+            <circle cx="32" cy="26" r="3.5" stroke="#D9AE6C" stroke-width="1.3" fill="none"/>
+            <circle cx="32" cy="26" r="1.2" fill="#D9AE6C" opacity="0.7"/>
+            <!-- Cuống -->
+            <line x1="32" y1="48" x2="32" y2="54" stroke="#D9AE6C" stroke-width="1.3" stroke-linecap="round"/>
+            <!-- Lá sen -->
+            <path d="M32 54 Q24 52 20 56" stroke="#D9AE6C" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.6"/>
+            <path d="M32 54 Q40 52 44 56" stroke="#D9AE6C" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.6"/>
+          </svg>
+        </div>
+        <div class="t-dot"></div>
+        <div class="t-content">
+          <span class="t-year">Ngày nay</span>
+          <h4>Tiếp nối di sản</h4>
+          <p>Phấn Nụ Nhất Chi Mai tiếp tục gìn giữ và lan tỏa nét đẹp truyền thống Huế đến nhiều thế hệ.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ NGUYÊN LIỆU ============ -->
+<section class="section ingredients" id="nguyen-lieu">
+  <div class="container">
+    <div class="section-head center reveal">
+      <h2>Nguyên liệu tinh tuyển</h2>
+      <p>Ẩn trong từng hạt phấn nhỏ là sự hoà quyện của những nguyên liệu thiên nhiên được chọn lọc kỹ lưỡng.</p>
+    </div>
+    <div class="ing-grid stagger">
+      <div class="ing-card ing-photo reveal" style="--i:0">
+        <span class="num">01</span>
+        <div class="ing-photo-wrap"><img src="images/ing-cao-lanh.jpg" alt="Đá cao lanh trắng nguyên liệu của Phấn Nụ NUZ" loading="lazy"></div>
+        <div class="ing-photo-body">
+          <h4>Cao lanh trắng</h4>
+          <p>Tạo nên độ mịn nhẹ đặc trưng, giúp hút bã nhờn, giữ da khô thoáng và mang lại lớp phủ mỏng nhẹ, tự nhiên.</p>
+        </div>
+      </div>
+      <div class="ing-card ing-photo reveal" style="--i:1">
+        <span class="num">02</span>
+        <div class="ing-photo-wrap"><img src="images/ing-bach-cuc.jpg" alt="Hoa bạch cúc khô dùng trong Phấn Nụ NUZ" loading="lazy"></div>
+        <div class="ing-photo-body">
+          <h4>Hoa bạch cúc</h4>
+          <p>Dịu dàng như một "người bảo vệ" làn da — thanh nhiệt, làm dịu và hỗ trợ giảm cảm giác mẩn đỏ, khó chịu.</p>
+        </div>
+      </div>
+      <div class="ing-card ing-photo reveal" style="--i:2">
+        <span class="num">03</span>
+        <div class="ing-photo-wrap"><img src="images/ing-hoa-hong.jpg" alt="Hoa hồng khô dùng trong Phấn Nụ NUZ" loading="lazy"></div>
+        <div class="ing-photo-body">
+          <h4>Hoa hồng</h4>
+          <p>Mang theo nét nữ tính và thanh tao, tạo hương thơm nhẹ nhàng, giúp làn da mềm mại, tươi sáng hơn.</p>
+        </div>
+      </div>
+      <div class="ing-card ing-photo reveal" style="--i:3">
+        <span class="num">04</span>
+        <div class="ing-photo-wrap"><img src="images/ing-nha-dam.jpg" alt="Nha đam tươi dùng trong Phấn Nụ NUZ" loading="lazy"></div>
+        <div class="ing-photo-body">
+          <h4>Nha đam</h4>
+          <p>Như làn gió mát lành — cấp ẩm, làm dịu da và hạn chế cảm giác khô khi sử dụng phấn.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="soul-block reveal">
+      <div>
+        <h3>"Linh hồn" của Phấn Nụ cung đình Huế</h3>
+        <p>Nếu Phấn Nụ là một nét đẹp được truyền qua nhiều thế hệ, thì <strong>cao lanh</strong> chính là linh hồn đứng sau câu chuyện ấy.</p>
+        <p>Từ những khối đá cao lanh tinh khiết, được nung bằng than cao cấp, rồi chuyển sang màu trắng đục, mềm hơn và dễ nghiền thành lớp bột mịn — mang tính mát, hỗ trợ kháng khuẩn và kiềm dầu tự nhiên theo Đông y.</p>
+      </div>
+      <div class="soul-process">
+        <div class="stage">
+          <div class="icon-circle"><img src="images/step-cao-lanh.jpg" alt="Đá cao lanh" loading="lazy"></div>
+          <span class="step-no">Bước 1</span>
+          <span class="step-label">Đá cao lanh</span>
+        </div>
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        <div class="stage">
+          <div class="icon-circle"><img src="images/step-nung-lua.jpg" alt="Nung lửa" loading="lazy"></div>
+          <span class="step-no">Bước 2</span>
+          <span class="step-label">Nung lửa</span>
+        </div>
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        <div class="stage">
+          <div class="icon-circle"><img src="images/step-nghien-min.jpg" alt="Nghiền mịn" loading="lazy"></div>
+          <span class="step-no">Bước 3</span>
+          <span class="step-label">Nghiền mịn</span>
+        </div>
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        <div class="stage">
+          <div class="icon-circle"><img src="images/step-nu-phan.jpg" alt="Nụ phấn" loading="lazy"></div>
+          <span class="step-no">Bước 4</span>
+          <span class="step-label">Nụ phấn</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUY TRÌNH ============ -->
+<section class="section process-sec process-v2" id="quy-trinh">
+  <!-- Orbs nền động -->
+  <div class="pn7-orb pn7-orb-1" aria-hidden="true"></div>
+  <div class="pn7-orb pn7-orb-2" aria-hidden="true"></div>
+  <div class="pn7-orb pn7-orb-3" aria-hidden="true"></div>
+  <!-- Bé Nụ 3 ngạc nhiên — peek từ góc trái -->
+  <div class="nu-mascot nu-mascot-process" role="button" tabindex="0" aria-label="Xem hồ sơ Bé Nụ">
+    <img src="images/nu-3.webp" alt="Bé Nụ ngạc nhiên" draggable="false">
+    <span class="nu-mascot-hint">Xem hồ sơ Bé Nụ</span>
+  </div>
+  <div class="pn7-page-header reveal">
+    <h2>Phấn Nụ được tạo ra<br>như <em>thế nào</em>?</h2>
+    <p>Đằng sau mỗi "nụ phấn" nhỏ bé là cả một quy trình thủ công tỉ mỉ, được gìn giữ qua nhiều thế hệ — trải qua 7 bước chính.</p>
+  </div>
+
+  <div class="pn7-progress reveal" id="pn7Progress"></div>
+
+  <div class="pn7-stage reveal-scale">
+    <div class="pn7-card" id="pn7Card">
+      <div class="pn7-card-bg" id="pn7CardBg"></div>
+      <div class="pn7-card-overlay"></div>
+      <div class="pn7-card-body">
+        <div class="pn7-step-label" id="pn7StepLabel"></div>
+        <h3 class="pn7-card-title" id="pn7CardTitle"></h3>
+        <p class="pn7-summary" id="pn7Summary"></p>
+        <div class="pn7-detail" id="pn7Detail">
+          <div class="pn7-detail-inner" id="pn7DetailInner"></div>
+        </div>
+        <button class="pn7-toggle-btn" id="pn7ToggleBtn" aria-expanded="false">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 1v12M1 7h12"/>
+          </svg>
+          <span id="pn7ToggleLbl">Xem chi tiết</span>
+        </button>
+      </div>
+    </div>
+    <div class="pn7-nav">
+      <button class="pn7-btn" id="pn7PrevBtn">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 2L4 7l5 5"/></svg>
+        Bước trước
+      </button>
+      <span class="pn7-nav-count" id="pn7NavCount">1 / 7</span>
+      <button class="pn7-btn primary" id="pn7NextBtn">
+        Bước tiếp
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 2l5 5-5 5"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="pn7-footer">NUZ · Phấn Nụ cung đình Huế · <a href="#">phannunuz.vn</a></div>
+</section>
+
+<!-- ============ CÔNG DỤNG ============ -->
+<section class="section benefits" id="cong-dung">
+  <!-- Aurora background layers -->
+  <div class="aurora-wrap" aria-hidden="true">
+    <div class="aurora a1"></div>
+    <div class="aurora a2"></div>
+    <div class="aurora a3"></div>
+  </div>
+
+  <div class="container" style="position:relative;z-index:2;">
+    <div class="section-head center reveal-ben">
+      <span class="tag">4 công dụng nổi bật</span>
+      <h2>Công dụng giữ sức hút qua nhiều năm</h2>
+      <p>Không nằm ở những lời quảng cáo, mà đến từ những công dụng đơn giản và thiết thực trong chăm sóc da hằng ngày. Chạm vào từng thẻ để xem chi tiết.</p>
+    </div>
+
+    <!-- 4 công dụng — dạng thẻ, bấm để xem chi tiết (giống thẻ sản phẩm) -->
+    <div class="ben-grid prod-grid stagger">
+
+      <div class="prod-card ben-card reveal-ben" style="--bd:0.08s" data-benefit="kiem-dau" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Xem chi tiết công dụng Kiềm dầu tự nhiên">
+        <div class="prod-img">
+          <img src="images/cong-dung-kiem-dau.jpg" alt="Kiềm dầu tự nhiên" loading="lazy">
+        </div>
+        <div class="prod-body">
+          <span class="prod-eyebrow">Công dụng 01</span>
+          <h4>Kiềm dầu tự nhiên</h4>
+          <p>Hấp thụ dầu thừa, giữ da khô ráo và bền màu lớp nền suốt nhiều giờ.</p>
+          <span class="prod-cta">Xem chi tiết
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+        </div>
+      </div>
+
+      <div class="prod-card ben-card reveal-ben" style="--bd:0.12s" data-benefit="nang-tone" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Xem chi tiết công dụng Nâng tone sáng nhẹ">
+        <div class="prod-img">
+          <img src="images/cong-dung-nang-tone.jpg" alt="Nâng tone sáng nhẹ" loading="lazy">
+        </div>
+        <div class="prod-body">
+          <span class="prod-eyebrow">Công dụng 02</span>
+          <h4>Nâng tone sáng nhẹ</h4>
+          <p>Nâng tông tự nhiên, đều màu da mà vẫn giữ vẻ tươi sáng, không bệt phấn.</p>
+          <span class="prod-cta">Xem chi tiết
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+        </div>
+      </div>
+
+      <div class="prod-card ben-card reveal-ben" style="--bd:0.16s" data-benefit="lanh-tinh" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Xem chi tiết công dụng Lành tính, không hương liệu">
+        <div class="prod-img">
+          <img src="images/cong-dung-lanh-tinh.jpg" alt="Lành tính - không hương liệu" loading="lazy">
+        </div>
+        <div class="prod-body">
+          <span class="prod-eyebrow">Công dụng 03</span>
+          <h4>Lành tính – không hương liệu</h4>
+          <p>Không hương liệu tổng hợp, dịu nhẹ và an toàn cho cả làn da nhạy cảm.</p>
+          <span class="prod-cta">Xem chi tiết
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+        </div>
+      </div>
+
+      <div class="prod-card ben-card reveal-ben" style="--bd:0.2s" data-benefit="de-tan" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Xem chi tiết công dụng Dễ tán, mịn lì, không gây bí da">
+        <div class="prod-img">
+          <img src="images/cong-dung-de-tan.jpg" alt="Dễ tán - mịn lì - không gây bí da" loading="lazy">
+        </div>
+        <div class="prod-body">
+          <span class="prod-eyebrow">Công dụng 04</span>
+          <h4>Dễ tán – mịn lì – không bí da</h4>
+          <p>Kết cấu mềm mượt, dễ tán đều, mịn lì mà vẫn thông thoáng, không bí da.</p>
+          <span class="prod-cta">Xem chi tiết
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+        </div>
+      </div>
+
+    </div><!-- /ben-grid -->
+
+    <!-- Quote kết -->
+    <blockquote class="ben-quote reveal-ben" style="--bd:0.24s">
+      "Một làn da đẹp không cần quá nhiều lớp trang điểm, chỉ cần được chăm sóc đều đặn mỗi ngày."
+    </blockquote>
+  </div>
+</section>
+
+<!-- ============ HÀNH TRÌNH SINH VIÊN FPT ============ -->
+<section class="section student-journey" id="hanh-trinh-sinh-vien">
+  <div class="student-journey-orb sj-orb-1" aria-hidden="true"></div>
+  <div class="student-journey-orb sj-orb-2" aria-hidden="true"></div>
+
+  <div class="container student-journey-grid">
+    <div class="student-journey-content reveal-left">
+      <span class="tag">Dấu chân sinh viên</span>
+      <h2>Hành trình sinh viên FPT lan tỏa Phấn Nụ</h2>
+      <div class="student-journey-copy">
+        <p>Hành trình của chúng mình bắt đầu tại nơi sản xuất Phấn Nụ Nhất Chi Mai ở Huế.</p>
+        <p>Tại đây, nhóm được tìm hiểu quy trình làm phấn thủ công và lắng nghe câu chuyện của người giữ nghề.</p>
+        <p>Những hình ảnh, kiến thức và trải nghiệm thực tế được chia sẻ qua video trên Facebook.</p>
+        <p>Sau chuyến đi, chúng mình tiếp tục lan tỏa câu chuyện Phấn Nụ qua website và mạng xã hội.</p>
+        <p>Mong rằng hành trình nhỏ này sẽ giúp nhiều người trẻ hiểu và trân trọng hơn giá trị văn hóa Huế.</p>
+      </div>
+    </div>
+
+    <div class="student-journey-video reveal-scale">
+      <a
+        class="student-video-link"
+        href="https://www.facebook.com/reel/1436570965176358"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Xem video hành trình sinh viên FPT lan tỏa Phấn Nụ trên Facebook"
+      >
+        <img
+          src="images/poster-du-an.jpg"
+          alt="Hành trình sinh viên FPT tìm hiểu và lan tỏa Phấn Nụ"
+          loading="lazy"
+        >
+        <span class="student-video-shade" aria-hidden="true"></span>
+        <span class="student-video-play" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M8.5 6.2v11.6L18 12 8.5 6.2Z"/>
+          </svg>
+        </span>
+        <span class="student-video-action">
+          <strong>Xem hành trình trên Facebook</strong>
+          <small>Nhấn để mở video đầy đủ</small>
+        </span>
+        <span class="student-video-platform" aria-hidden="true">Facebook Reel</span>
+      </a>
+      <p class="student-video-caption">Hành trình thực tế tại nơi sản xuất Phấn Nụ Nhất Chi Mai</p>
+    </div>
+  </div>
+
+  <div class="container student-giving-block">
+    <div class="section-head center reveal">
+      <span class="tag">Tôn vinh vẻ đẹp người phụ nữ</span>
+      <h2>Từ hành trình tìm hiểu đến những món quà yêu thương</h2>
+      <p>Sau khi tìm hiểu về Phấn Nụ, chúng mình tiếp tục hành trình bằng cách trao tặng những viên phấn nhỏ như một lời cảm ơn và sự trân trọng dành cho những người phụ nữ luôn âm thầm chăm lo cho cuộc sống mỗi ngày.</p>
+    </div>
+
+    <div class="student-story-grid stagger">
+      <article class="student-story-card reveal" style="--i:0">
+        <div class="student-story-image">
+          <img src="images/co_quyen.jpg" alt="Cô Quyên nhận quà Phấn Nụ" loading="lazy">
+          <span class="student-story-number">01</span>
+        </div>
+        <div class="student-story-body">
+          <span class="student-story-label">Câu chuyện của</span>
+          <h3>Cô Quyên</h3>
+          <p>Hằng ngày, cô mưu sinh bằng công việc thu gom phế liệu và chăm lo cho gia đình. Vì cuộc sống bận rộn, cô hiếm khi có thời gian để chăm chút cho bản thân.</p>
+        </div>
+      </article>
+
+      <article class="student-story-card reveal" style="--i:1">
+        <div class="student-story-image">
+          <img src="images/co_phuong.jpg" alt="Cô Phượng nhận quà Phấn Nụ" loading="lazy">
+          <span class="student-story-number">02</span>
+        </div>
+        <div class="student-story-body">
+          <span class="student-story-label">Câu chuyện của</span>
+          <h3>Cô Phượng</h3>
+          <p>Mỗi ngày, cô tất bật với công việc phụ quán. Dù từng nghe nhắc đến Phấn Nụ, việc chăm sóc sắc đẹp cho bản thân thường phải nhường chỗ cho những bộn bề mưu sinh.</p>
+        </div>
+      </article>
+
+      <article class="student-story-card reveal" style="--i:2">
+        <div class="student-story-image">
+          <img src="images/co_huong.jpg" alt="Cô Hường nhận quà Phấn Nụ" loading="lazy">
+          <span class="student-story-number">03</span>
+        </div>
+        <div class="student-story-body">
+          <span class="student-story-label">Câu chuyện của</span>
+          <h3>Cô Hường</h3>
+          <p>Cô là lao công tại Trường Đại học FPT và đã từng biết đến Phấn Nụ Huế. Dù công việc hằng ngày khá bận rộn, cô vẫn quan tâm đến việc chăm sóc bản thân bằng sữa rửa mặt và serum dưỡng ẩm.</p>
+        </div>
+      </article>
+    </div>
+
+    <p class="student-giving-note reveal">Mỗi viên Phấn Nụ được trao đi không chỉ là một món quà làm đẹp, mà còn là lời nhắn rằng mọi người phụ nữ đều xứng đáng được yêu thương và chăm sóc.</p>
+  </div>
+</section>
+
+<!-- ============ BLOG: NỤ KỂ CHUYỆN ============ -->
+<section class="section blog-sec" id="blog">
+  <div class="container" style="position:relative;">
+    <!-- Bé Nụ 2 chỉ tay — góc phải phía trên -->
+    <div class="nu-mascot nu-mascot-blog" role="button" tabindex="0" aria-label="Xem hồ sơ Bé Nụ">
+      <img src="images/nu-2.webp" alt="Bé Nụ chỉ tay" draggable="false">
+      <span class="nu-mascot-hint">Xem hồ sơ Bé Nụ</span>
+    </div>
+    <div class="section-head center reveal">
+      <span class="tag">Chuyên mục</span>
+      <h2>Nụ kể chuyện</h2>
+      <p>Toàn bộ 7 câu chuyện về Phấn Nụ NUZ — bấm vào từng thẻ để đọc nội dung đầy đủ.</p>
+    </div>
+    <div class="blog-grid stagger" id="blogGrid"></div>
+  </div>
+</section>
+
+<!-- modal -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-box" id="modalBox">
+    <div class="modal-progress"><div class="modal-progress-fill" id="modalProgressFill"></div></div>
+    <button class="modal-close" id="modalClose" aria-label="Đóng">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <div class="modal-scroll" id="modalScroll">
+      <div id="modalContent"></div>
+    </div>
+    <div class="modal-nav">
+      <button class="modal-nav-btn modal-prev" id="modalPrev" aria-label="Câu chuyện trước">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg>
+        <span>Câu trước</span>
+      </button>
+      <span class="modal-nav-count" id="modalCount">1 / 7</span>
+      <button class="modal-nav-btn modal-next" id="modalNext" aria-label="Câu chuyện tiếp theo">
+        <span>Câu tiếp</span>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ BÉ NỤ PROFILE MODAL ============ -->
+<div class="nu-profile-overlay" id="nuProfileOverlay">
+  <div class="nu-profile-card" id="nuProfileCard" role="dialog" aria-modal="true" aria-labelledby="nuProfileTitle">
+    <span class="nu-profile-deco d1" aria-hidden="true">🌸</span>
+    <span class="nu-profile-deco d2" aria-hidden="true">🪷</span>
+    <button class="nu-profile-close" id="nuProfileClose" aria-label="Đóng">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <div class="nu-profile-grid">
+      <div class="nu-profile-photo-wrap">
+        <img src="images/nu-1.webp" alt="Bé Nụ NUZ">
+      </div>
+      <div>
+        <h3 class="nu-profile-title" id="nuProfileTitle">BÉ NỤ</h3>
+        <div class="nu-profile-fields">
+          <div class="nu-profile-field"><span class="nf-label">Tên:</span><span class="nf-value">Bé Nụ ♡</span></div>
+          <div class="nu-profile-field"><span class="nf-label">Biệt danh:</span><span class="nf-value">Em xinh của Nụ Xưa, Nét Nay</span></div>
+          <div class="nu-profile-field"><span class="nf-label">Quê quán:</span><span class="nf-value">Huế</span></div>
+          <div class="nu-profile-field"><span class="nf-label">Đại diện cho:</span><span class="nf-value">Phấn Nụ NUZ</span></div>
+          <div class="nu-profile-field"><span class="nf-label">Tính cách nổi bật:</span><span class="nf-value">Dịu dàng, tinh tế, ngọt ngào</span></div>
+          <div class="nu-profile-field"><span class="nf-label">Sở thích:</span><span class="nf-value">Kể chuyện xưa, hoa sen, gam màu tím hồng</span></div>
+          <div class="nu-profile-field"><span class="nf-label">Điều Bé Nụ muốn nhắn gửi:</span><span class="nf-value">Xưa mà không cũ, truyền thống mà vẫn rất chất!</span></div>
+          <div class="nu-profile-field"><span class="nf-label">Nếu được miêu tả bằng một từ:</span><span class="nf-value">Thương</span></div>
+          <div class="nu-profile-field"><span class="nf-label">Bảo bối luôn mang theo:</span><span class="nf-value">Phấn Nụ, cánh sen và những câu chuyện đẹp</span></div>
+          <div class="nu-profile-field"><span class="nf-label">Lời nhắn cho mọi người:</span><span class="nf-value">Cùng Nụ khám phá vẻ đẹp truyền thống theo cách thật gần gũi nhé!</span></div>
+        </div>
+        <p class="nu-profile-sign">— Nụ ♡</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ MODAL CHI TIẾT CÔNG DỤNG (GALAXY, dùng chung style với modal sản phẩm) ============ -->
+<div class="prod-detail-overlay" id="benDetailOverlay">
+  <div class="prod-detail-card" id="benDetailCard" role="dialog" aria-modal="true" aria-labelledby="benDetailTitle">
+    <div class="prod-detail-galaxy" aria-hidden="true">
+      <div class="pdg-nebula"></div>
+      <div class="pdg-stars pdg-stars-1"></div>
+      <div class="pdg-stars pdg-stars-2"></div>
+      <div class="pdg-stars pdg-stars-3"></div>
+    </div>
+    <button class="prod-detail-close" id="benDetailClose" aria-label="Đóng">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <div class="prod-detail-grid">
+      <div class="prod-detail-left">
+        <span class="prod-detail-eyebrow" id="benDetailEyebrow">Công dụng</span>
+        <h3 class="prod-detail-title shine" id="benDetailTitle"></h3>
+        <p class="prod-detail-tagline" id="benDetailTagline"></p>
+        <p class="prod-detail-desc" id="benDetailDesc"></p>
+
+        <div class="prod-detail-block">
+          <h5 class="prod-detail-h shine" id="benDetailH1">Ưu điểm nổi bật</h5>
+          <ul class="prod-detail-list" id="benDetailBenefits"></ul>
+        </div>
+        <div class="prod-detail-block">
+          <h5 class="prod-detail-h shine" id="benDetailH2">Khuyến nghị sử dụng</h5>
+          <p class="prod-detail-recommend" id="benDetailRecommend"></p>
+        </div>
+      </div>
+      <div class="prod-detail-right">
+        <div class="prod-detail-img-wrap">
+          <img id="benDetailImg" src="" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ CLOSING ============ -->
+<section class="closing">
+  <div class="container reveal" style="position:relative;">
+    <div class="nu-mascot nu-mascot-closing" role="button" tabindex="0" aria-label="Xem hồ sơ Bé Nụ">
+      <img src="images/nu-4.webp" alt="Bé Nụ vẫy tay chào" draggable="false">
+      <span class="nu-mascot-hint">Xem hồ sơ Bé Nụ</span>
+    </div>
+    <h2>Mỗi nụ phấn, một câu chuyện</h2>
+    <p>Hơn cả một sản phẩm làm đẹp, Phấn Nụ NUZ là câu chuyện về sự kế thừa, gìn giữ và lan toả những giá trị truyền thống của xứ Huế qua thời gian.</p>
+    <a href="#blog" class="btn btn-primary">Đọc thêm Nụ kể chuyện</a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="brand">
+          <svg class="nu-mark" viewBox="0 0 40 40" fill="none">
+            <circle cx="20" cy="20" r="19" stroke="currentColor" stroke-width="1"/>
+            <path d="M20 10c4 4 6 8 6 12a6 6 0 1 1-12 0c0-4 2-8 6-12Z" fill="currentColor" opacity="0.85"/>
+          </svg>
+          NUZ
+        </div>
+        <p>Phấn Nụ Truyền Thống NUZ — kế thừa tinh hoa mỹ phẩm cung đình Huế.</p>
+      </div>
+      <div>
+        <h5>Khám phá</h5>
+        <ul>
+          <li><a href="#gioi-thieu">Phấn Nụ là gì</a></li>
+          <li><a href="#hinh-dang">Hình dáng</a></li>
+          <li><a href="#hanh-trinh">Di sản</a></li>
+          <li><a href="#nguyen-lieu">Nguyên liệu</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Trải nghiệm</h5>
+        <ul>
+          <li><a href="#quy-trinh">Quy trình</a></li>
+          <li><a href="#cong-dung">Công dụng</a></li>
+          <li><a href="#hanh-trinh-sinh-vien">Hành trình sinh viên</a></li>
+          <li><a href="#blog">Nụ kể chuyện</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Hashtag</h5>
+        <ul>
+          <li>#NuKeChuyen</li>
+          <li>#NuXuaNetNay</li>
+          <li>#PhanNuNhatChiMai</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Phấn Nụ NUZ. Mọi quyền được bảo lưu.</span>
+      <span>Thiết kế lấy cảm hứng từ di sản cố đô Huế.</span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://forms.gle/31mpqUVnU1YzjGet7" target="_blank" rel="noopener" class="feedback-fab" id="feedbackFab" aria-label="Gửi nhận xét">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+  <span class="feedback-fab-text">Nhận xét</span>
+</a>
+
+<button class="totop" id="toTop" aria-label="Lên đầu trang">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script src="main.js" defer></script>
+
+<div id="ambientOrbs" aria-hidden="true"></div>
+</body>
+</html>
